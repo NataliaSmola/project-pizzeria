@@ -77,43 +77,39 @@
       /* add element to menu*/
       menuContainer.appendChild(thisProduct.element);
     }
+
     initAccordion() {
       const thisProduct = this;
 
       /* find the clickable trigger (the element that should react to clicking) */
       const clickableTriggers = thisProduct.element.querySelectorAll(select.menuProduct.clickable);
       console.log(clickableTriggers);
-
-    /* START: click event listener to trigger */
-    for (let clickableTrigger of clickableTriggers) {
-    clickableTrigger.addEventListener('click', function(){
-     console.log('clicked');
-
-
-
-      /* prevent default action for event */
-      event.preventDefault();
-      /* toggle active class on element of thisProduct */
-      //const addClassActive = clickableTriggers.classList.toggle(".active");
-    const addClassActive = thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive);
-    console.log('Element just clicked', addClassActive);
-      /* find all active products */
-      const activeProducts = document.querySelectorAll(select.all.menuProductsActive);
-      console.log(activeProducts);
-      /* START LOOP: for each active product */
-      for (let activeProduct of activeProducts){
-        /* START: if the active product isn't the element of thisProduct */
-        if(activeProduct !== thisProduct.element) {
-          /* remove class active for the active product */
-          activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
-          console.log(activeProduct);
-        /* END: if the active product isn't the element of thisProduct */
-}
-      /* END LOOP: for each active product */
-}
-    /* END: click event listener to trigger */
-});
-  }
+      /* START: click event listener to trigger */
+      for (let clickableTrigger of clickableTriggers) {
+        clickableTrigger.addEventListener('click', function() {
+          console.log('clicked');
+          /* prevent default action for event */
+          event.preventDefault();
+          /* toggle active class on element of thisProduct */
+          const addClassActive = thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive);
+          console.log('Element just clicked', addClassActive);
+          /* find all active products */
+          const activeProducts = document.querySelectorAll(select.all.menuProductsActive);
+          console.log(activeProducts);
+          /* START LOOP: for each active product */
+          for (let activeProduct of activeProducts) {
+            /* START: if the active product isn't the element of thisProduct */
+            if (activeProduct !== thisProduct.element) {
+              /* remove class active for the active product */
+              activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
+              console.log(activeProduct);
+              /* END: if the active product isn't the element of thisProduct */
+            }
+            /* END LOOP: for each active product */
+          }
+          /* END: click event listener to trigger */
+        });
+      }
     }
   }
 
