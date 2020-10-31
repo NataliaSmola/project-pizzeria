@@ -98,8 +98,6 @@
       thisProduct.initOrderForm();
       thisProduct.initAmountWidget();
       thisProduct.processOrder();
-
-
     }
 
     renderInMenu() {
@@ -149,7 +147,6 @@
         }
         /* END: click event listener to trigger */
       });
-      //}
     }
 
     initOrderForm() {
