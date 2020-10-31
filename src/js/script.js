@@ -99,7 +99,7 @@
       thisProduct.initAmountWidget();
       thisProduct.processOrder();
 
-      ////console.log('new Product:', thisProduct);
+
     }
 
     renderInMenu() {
@@ -131,22 +131,18 @@
 
       /* START: click event listener to trigger */
       thisProduct.accordionTrigger.addEventListener('click', function() {
-        ////console.log('clicked');
         /* prevent default action for event */
         event.preventDefault();
         /* toggle active class on element of thisProduct */
         thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive);
-        ////console.log('Element just clicked', addClassActive);
         /* find all active products */
         const activeProducts = document.querySelectorAll(select.all.menuProductsActive);
-        ////console.log(activeProducts);
         /* START LOOP: for each active product */
         for (let activeProduct of activeProducts) {
           /* START: if the active product isn't the element of thisProduct */
           if (activeProduct !== thisProduct.element) {
             /* remove class active for the active product */
             activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
-            ////console.log(activeProduct);
             /* END: if the active product isn't the element of thisProduct */
           }
           /* END LOOP: for each active product */
@@ -189,8 +185,6 @@
         //START loop for each optionId in param.options
         for (let optionId in param.options) {
           const option = param.options[optionId];
-          ////console.log(option);
-
           const optionSelected = formData.hasOwnProperty(paramId) && formData[paramId].indexOf(optionId) > -1;
           /* START IF: if option is selected and option is not default */
           if (optionSelected && !option.default) {
@@ -323,7 +317,6 @@
 
       thisCart.getElements(element);
       thisCart.initActions();
-      ////console.log('new cart', thisCart);
     }
 
     getElements(element) {
@@ -364,7 +357,7 @@
       /* add element to cart*/
       thisCart.dom.productList.appendChild(generatedDOM);
       thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
-      //console.log('thisCart products', thisCart.products);
+
       thisCart.update();
     }
 
@@ -397,8 +390,8 @@
       cartProduct.dom.wrapper.remove();
       thisCart.update();
     }
-
   }
+
   class CartProduct {
     constructor(menuProduct, element) {
       const thisCartProduct = this;
@@ -410,15 +403,9 @@
       thisCartProduct.amount = menuProduct.amount;
       thisCartProduct.params = JSON.parse(JSON.stringify(menuProduct.params));
 
-
-
       thisCartProduct.getElements(element);
       thisCartProduct.initAmountWidget();
       thisCartProduct.initActions();
-
-      //console.log('new Card Product', thisCartProduct);
-      //console.log('productData', menuProduct);
-
     }
 
     getElements(element) {
@@ -476,7 +463,6 @@
     initMenu: function() {
 
       const thisApp = this;
-      //////console.log('thisApp.data:', thisApp.data);
 
       for (let productData in thisApp.data.products) {
         new Product(productData, thisApp.data.products[productData]);
@@ -496,11 +482,11 @@
 
     init: function() {
       const thisApp = this;
-      //console.log('*** App starting ***');
-      //console.log('thisApp:', thisApp);
-      //console.log('classNames:', classNames);
-      //console.log('settings:', settings);
-      //console.log('templates:', templates);
+      console.log('*** App starting ***');
+      console.log('thisApp:', thisApp);
+      console.log('classNames:', classNames);
+      console.log('settings:', settings);
+      console.log('templates:', templates);
 
       thisApp.initData();
       thisApp.initMenu();
