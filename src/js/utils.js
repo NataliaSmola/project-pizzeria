@@ -1,5 +1,4 @@
 /* global Handlebars, dataSource */
-
 const utils = {}; // eslint-disable-line no-unused-vars
 
 utils.createDOMFromHTML = function(htmlString) {
@@ -48,7 +47,8 @@ utils.convertDataSourceToDbJson = function(){
 Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
   return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 });
-
 Handlebars.registerHelper('joinValues', function(input, options) {
   return Object.values(input).join(options.fn(this));
 });
+
+export default utils;
