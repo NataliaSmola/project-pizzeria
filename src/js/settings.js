@@ -1,5 +1,6 @@
-//import {settings, select, classNames, templates} from './settings.js';
-import Handlebars from './utils.js';
+/* global Handlebars */
+
+//import Handlebars from './utils.js';
 
 export const select = {
   templateOf: {
