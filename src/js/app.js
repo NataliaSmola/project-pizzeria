@@ -1,6 +1,7 @@
 import {settings, select, classNames, templates} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
+import Booking from './components/Booking.js';
 
 const app = {
   initPages: function() {
@@ -50,6 +51,14 @@ const app = {
       );
     }
   },
+
+  initBooking: function() {
+    const thisApp = this;
+
+    const widgetWrapper = document.querySelector(select.containerOf.booking);
+    thisApp.booking = new Booking(widgetWrapper);
+
+  },
   initMenu: function() {
 
     const thisApp = this;
@@ -58,6 +67,7 @@ const app = {
       new Product(thisApp.data.products[productData].id, thisApp.data.products[productData]);
     }
   },
+
   initData: function() {
     const thisApp = this;
 
@@ -75,6 +85,7 @@ const app = {
         thisApp.initMenu();
       });
   },
+
   initCart: function() {
     const thisApp = this;
 
@@ -97,8 +108,10 @@ const app = {
     console.log('templates:', templates);
 
     thisApp.initPages();
+    thisApp.initBooking();
     thisApp.initData();
     thisApp.initCart();
+
   },
 
 };
