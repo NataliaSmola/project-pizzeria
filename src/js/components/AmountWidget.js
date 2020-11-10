@@ -21,9 +21,9 @@ class AmountWidget extends BaseWidget {
   }
 
   isValid(value) {
-    return !isNaN(value) &&
-      value >= settings.amountWidget.defaultMin &&
-      value <= settings.amountWidget.defaultMax;
+    return !isNaN(value)
+    && value >= settings.amountWidget.defaultMin
+    && value <= settings.amountWidget.defaultMax;
   }
 
   renderValue() {
@@ -36,7 +36,8 @@ class AmountWidget extends BaseWidget {
     const thisWidget = this;
 
     thisWidget.dom.input.addEventListener('change', function() {
-      thisWidget.setValue(thisWidget.dom.input.value);
+      //thisWidget.setValue(thisWidget.dom.input.value);
+      thisWidget.value = thisWidget.dom.input.value;
     });
     thisWidget.dom.linkDecrease.addEventListener('click', function(event) {
       event.preventDefault();

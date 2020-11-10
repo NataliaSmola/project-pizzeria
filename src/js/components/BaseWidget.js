@@ -1,14 +1,10 @@
-//import DatePicker from './DatePicker.js';
-
 class BaseWidget{
 
   constructor(wrapperElement, initialValue) {
-    //super(wrapperElement, utils.dateToStr(new Date()));
     const thisWidget = this;
 
     thisWidget.dom = {};
     thisWidget.dom.wrapper = wrapperElement;
-
     thisWidget.correctValue = initialValue;
   }
 
@@ -38,7 +34,6 @@ class BaseWidget{
 
   parseValue(value) {
     return parseInt(value);
-
   }
 
   isValid(value) {

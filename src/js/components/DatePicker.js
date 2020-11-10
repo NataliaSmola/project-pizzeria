@@ -14,6 +14,7 @@ class DatePicker extends BaseWidget {
     thisWidget.initPlugin();
 
   }
+
   initPlugin() {
     const thisWidget = this;
 
