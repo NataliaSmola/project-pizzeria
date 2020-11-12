@@ -12,6 +12,7 @@ class Booking {
     thisBooking.render(widgetWrapper);
     thisBooking.initWidgets();
     thisBooking.getData();
+    thisBooking.availableTables();
   }
 
   getData() {
@@ -132,9 +133,47 @@ class Booking {
         table.classList.add(classNames.booking.tableBooked);
       } else {
         table.classList.remove(classNames.booking.tableBooked);
+        //console.log(table.classList.remove);
       }
     }
   }
+
+  /*Available tables - this function will check if there is any tables available in selected date and time*/
+  availableTables() {
+    const thisBooking = this;
+
+    for (let table of thisBooking.dom.tables) {
+      //console.log('table', table);
+      table.addEventListener('click', function() {
+        if (!table.classList.contains(classNames.booking.tableBooked)) {
+          table.classList.toggle(classNames.booking.tableBooked)
+          alert("Thank you for your reservation");
+        } else {
+          alert("Sorry, table is not available. Please select different time");
+        }
+      })
+    }
+  }
+
+
+
+
+    /*if (!table.classList.contains(classNames.booking.tableBooked)) {
+      table.addEventListener('click', function() {
+        table.classList.toggle(classNames.booking.loading);
+        console.log('is this table available:', table.classList.contains(classNames.booking.loading));
+      })
+    } else {
+      table.classList.remove(classNames.booking.tableBooked);
+    }*/
+
+  /*  if()
+    table.addEventListener('click', function(){
+      table.classList.toggle(classNames.booking.tableBooked);
+
+    });
+  }
+}*/
 
   render(widgetWrapper) {
     const thisBooking = this;
