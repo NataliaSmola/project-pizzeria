@@ -64,6 +64,7 @@ class Booking {
       .then(function([bookings, eventsCurrent, eventsRepeat]) {
         thisBooking.parseData(bookings, eventsCurrent, eventsRepeat);
       });
+
   }
 
   parseData(bookings, eventsCurrent, eventsRepeat) {
@@ -148,12 +149,10 @@ class Booking {
       table.addEventListener('click', function() {
 
         table.classList.add(classNames.booking.tableBooked);
-        console.log(table);
-      });
 
-      let tableId = table.getAttribute(settings.booking.tableIdAttribute);
-      thisBooking.selectedTable = tableId;
-      //});
+        let tableId = table.getAttribute(settings.booking.tableIdAttribute);
+        thisBooking.selectedTable = tableId;
+      });
     }
   }
 
@@ -172,7 +171,6 @@ class Booking {
       phone: thisBooking.dom.phone.value,
       address: thisBooking.dom.address.value,
     };
-    console.log(payload);
 
     for (let starter of thisBooking.dom.selectedStarter) {
       if (starter.checked == true) {
@@ -194,9 +192,11 @@ class Booking {
       })
       .then(function(parsedResponse) {
         console.log('parsedResponse', parsedResponse);
+        thisBooking.getData();
       });
 
   }
+
   render(widgetWrapper) {
     const thisBooking = this;
 
