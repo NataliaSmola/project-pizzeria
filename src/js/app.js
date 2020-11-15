@@ -100,6 +100,21 @@ const app = {
     });
   },
 
+  initCarousel: function() {
+    const thisApp = this;
+
+
+    const flkty = new Flickity('.main-carousel', {
+      cellAlign: 'center',
+      //contain: true,
+      //autoPlay: true,
+      freeScroll: true,
+
+      //wraparound: true,
+      //prevNextButtons: false
+    });
+  },
+
   init: function() {
     const thisApp = this;
 
@@ -107,6 +122,7 @@ const app = {
     thisApp.initData();
     thisApp.initCart();
     thisApp.initBooking();
+    thisApp.initCarousel();
 
   },
 

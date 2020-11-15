@@ -1,15 +1,13 @@
 /* Global */
-
 .home-wrapper {
-  margin: ($base-size * 3.5) auto;
-  padding: ($base-size * 6) ($base-size * 4);
-  background: $color-light;
-  border-bottom: 1px solid lighten($color-dark, 70%);
-  border-radius: $radius;
-  font-family: $font-header;
+    margin: 42px auto;
+    padding: 72px 48px;
+    background: $color-light;
+    border-bottom: 1px solid #e6e6e6;
+    border-radius: 4px;
 }
-/*Box order and book*/
 
+/*Box order and book*/
 .home-order-book {
   //border: 1px solid red;
   justify-content: center;
@@ -30,6 +28,7 @@
     //border: 1px solid yellow;
     margin: 10px;
   }
+
   p {
     font-size: 13px;
     color: $color-light;
@@ -41,12 +40,12 @@
 }
 
 .home-order {
-  background-image: url(../../images/home-page/pizza-1.jpg);
-  border: 2px solid green;
+  background-image: url("../../images/home-page/pizza-1.jpg");
+  //border: 2px solid green;
 }
 
 .home-book {
-  background-image: url(../../images/home-page/pizza-2.jpg);
+  background-image: url("../../images/home-page/pizza-2.jpg");
 }
 
 .box {
@@ -54,9 +53,8 @@
   //border: 1px solid yellow;
   margin: 2px;
   width: 100%;
-  background-size: cover;  
+  background-size: cover;
 }
-
 /* Hours Box*/
 
 .home-hours {
@@ -65,6 +63,7 @@
   padding: 10px;
   margin-top: 2px;
   background-color: $color-hour-box;
+
   a {
     @extend .h4;
     color: $color-light;
@@ -72,18 +71,50 @@
     //border: 1px solid yellow;
     margin: 10px;
   }
+
   p {
     @extend .h2;
     color: $color-light;
     text-decoration: none;
     //border: 1px solid yellow;
     margin: 10px;
-    display: block;
+
   }
 }
+
 .hours {
   //border: 1px solid black;
   padding: 10px;
+}
+
+/* Carousel */
+.carousel-wrapper {
+  //margin: 20px 0;
+  border: 5px solid green;
+
+  margin-top: 20px;
+
+}
+
+.carousel-image {
+  border: 1px solid red;
+  width: 50px;
 
 
+img {
+  border: 3px solid yellow;
+
+}
+}
+.main-carousel {
+  border: 1px solid blue;
+  margin-top: 20px;
+}
+.carousel-text {
+  border: 2px solid blue;
+}
+.carousel-cell {
+  border: 1px solid black;
+  //display: flex;
+  //width: 25%;
 }

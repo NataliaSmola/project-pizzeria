@@ -238,6 +238,7 @@ class Booking {
       thisBooking.sendOrder();
     });
   }
+  
 }
 
 export default Booking;
