@@ -4,12 +4,14 @@ export const select = {
     menuProduct: '#template-menu-product',
     cartProduct: '#template-cart-product',
     bookingWidget: '#template-booking-widget',
+    homePage: '#template-home-page',
   },
   containerOf: {
     menu: '#product-list',
     cart: '#cart',
     pages: '#pages',
     booking: '.booking-wrapper',
+    home: '.home-wrapper',
   },
   all: {
     menuProducts: '#product-list > .product',
@@ -66,7 +68,8 @@ export const select = {
     selectedStarter: '[name="starter"]',
   },
   nav: {
-    links: '.main-nav a',
+    links: '.main-nav a, .inner-product a',
+
   },
 };
 
