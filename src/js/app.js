@@ -112,7 +112,6 @@ const app = {
       cellAlign: 'center',
       contain: true,
       autoPlay: true,
-      freeScroll: true,
       wrapAround: true,
       prevNextButtons: false,
     });
