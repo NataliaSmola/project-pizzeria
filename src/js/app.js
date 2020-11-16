@@ -2,6 +2,7 @@ import {settings, select, classNames} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
+import Flickity from '../flickity/flickity.pkgd.js';
 
 
 const app = {
@@ -101,20 +102,22 @@ const app = {
   },
 
   initCarousel: function() {
+
+    /* eslint-disable no-unused-vars */
+
     const thisApp = this;
 
 
     const flkty = new Flickity('.main-carousel', {
       cellAlign: 'center',
-      //contain: true,
-      //autoPlay: true,
+      contain: true,
+      autoPlay: true,
       freeScroll: true,
-
-      //wraparound: true,
-      //prevNextButtons: false
+      wrapAround: true,
+      prevNextButtons: false,
     });
   },
-
+  /* eslint-disable no-unused-vars */
   init: function() {
     const thisApp = this;
 
