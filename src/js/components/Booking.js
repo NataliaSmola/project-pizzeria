@@ -16,6 +16,7 @@ class Booking {
     thisBooking.getData();
     thisBooking.initActions();
     thisBooking.sendOrder();
+    thisBooking.sliderColor();
   }
 
   getData() {
@@ -139,6 +140,7 @@ class Booking {
         table.classList.remove(classNames.booking.tableBooked);
 
       }
+      thisBooking.sliderColor();
     }
   }
 
@@ -220,6 +222,7 @@ class Booking {
     thisBooking.dom.address = thisBooking.dom.wrapper.querySelector(select.cart.address);
 
     thisBooking.dom.form = thisBooking.dom.wrapper.querySelector(select.booking.form);
+
   }
 
   initWidgets() {
@@ -238,7 +241,40 @@ class Booking {
       thisBooking.sendOrder();
     });
   }
-  
+
+  sliderColor() {
+    const thisBooking = this;
+
+    const slider = document.querySelector('.rangeSlider');
+    console.log(slider);
+    let availableTables = thisBooking.booked[thisBooking.date][thisBooking.hour];
+    console.log(availableTables);
+    let sliderPercentage = 0;
+    console.log(sliderPercentage);
+
+
+
+    for(let hour = 12; hour < 24; hour += 0.5){
+      sliderPercentage += 100 / 24;
+
+      if(availableTables.length === 3){
+        /*zajete stoliki, kolor czerwony*/
+        slider.style.backgroundColor='red';
+
+      }
+      else if(availableTables.length === 2){
+        /*jeden wolny stolik, kolor zolty*/
+        slider.style.backgroundColor='orange';
+
+      }
+      else {
+        /*wolne stoliki, kolor zielony*/
+        //slider.classList.add(classNames.color_slider.tablesAreAvailable);
+        slider.style.backgroundColor='green';
+
+      }
+    }
+  }
 }
 
 export default Booking;
