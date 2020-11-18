@@ -16,7 +16,7 @@ class Booking {
     thisBooking.getData();
     thisBooking.initActions();
     thisBooking.sendOrder();
-    thisBooking.sliderColor();
+
   }
 
   getData() {
@@ -245,35 +245,33 @@ class Booking {
   sliderColor() {
     const thisBooking = this;
 
+    const bookedHours = thisBooking.booked[thisBooking.date]; //godziny od 12 do 19.30 potem undefined
+    const colorArray = [];
     const slider = document.querySelector('.rangeSlider');
-    console.log(slider);
-    let availableTables = thisBooking.booked[thisBooking.date][thisBooking.hour];
-    console.log(availableTables);
-    let sliderPercentage = 0;
-    console.log(sliderPercentage);
 
+    const openHour = settings.hours.open; //12
+    const closeHour = settings.hours.close; //24
+    const step = 0.5; // 30min
+    //przykład pol na pol: linear-gradient(to right, color 50%, color 50%)
 
+    for (let bookedHour in bookedHours) {
+      //Oblicz poczatkowy procent (bedzie 0 na poczatku (wybrana godzina - czas otwarcia *100% / 12(bo czas otwarcia restauracji)) )
+      const firstValue = ((bookedHour - openHour) * 100) / (closeHour - openHour);
+      //dodaj do tego 30 min
+      const secondValue = (((bookedHour - openHour) + step) * 100) / (closeHour - openHour);
 
-    for(let hour = 12; hour < 24; hour += 0.5){
-      sliderPercentage += 100 / 24;
-
-      if(availableTables.length === 3){
-        /*zajete stoliki, kolor czerwony*/
-        slider.style.backgroundColor='red';
-
-      }
-      else if(availableTables.length === 2){
-        /*jeden wolny stolik, kolor zolty*/
-        slider.style.backgroundColor='orange';
-
-      }
-      else {
-        /*wolne stoliki, kolor zielony*/
-        //slider.classList.add(classNames.color_slider.tablesAreAvailable);
-        slider.style.backgroundColor='green';
-
+      if (bookedHours[bookedHour].length === 3) {
+        /*brak miejsc, kolor czerowny, array.push()*/
+        colorArray.push('/*' + bookedHour + '*/red ' + firstValue + '%, red ' + secondValue + '%');
+      } else if (bookedHours[bookedHour].length === 2) {
+        colorArray.push('/*' + bookedHour + '*/orange ' + firstValue + '%, orange ' + secondValue + '%');
+      } else {
+        colorArray.push('/*' + bookedHour + '*/green ' + firstValue + '%, green ' + secondValue + '%');
       }
     }
+
+    const gradientColor = colorArray.sort(); //jak join to jest blurry
+    slider.style.background = 'linear-gradient(to right, ' + gradientColor + ')'; //bo linear-gradient(to right, color 50%, color 50%)
   }
 }
 
